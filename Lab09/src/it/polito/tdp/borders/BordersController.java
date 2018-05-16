@@ -72,6 +72,7 @@ public class BordersController {
 			}
 			
 			model.createGraph(year);
+			
 		} catch (NumberFormatException e) {
 			this.txtResult.appendText("Inserire un anno valido!");
 			return;
@@ -79,15 +80,16 @@ public class BordersController {
 	
     	Country start = this.cmbCountries.getValue();
     	
+    	if (this.cmbCountries.getValue() == null) { 
+    		this.txtResult.appendText("Selezionare uno stato!");
+    		return;
+    	}
+
     	if (!model.vertex(start)) {
     		this.txtResult.appendText(String.format("Lo stato selezionato (%s) non era presente prima dell'anno inserito!", start.getStateNme()));
     		return ;
     	}
     	
-    	if (start == null) { 
-    		this.txtResult.appendText("Selezionare uno stato!");
-    		return;
-    	}
 //    		for (Country c : model.trovaVicini(start))
 //    		for (Country c : model.trovaViciniAmpiezza(start))
 //    		for (Country c : model.trovaViciniProfondita(start))
