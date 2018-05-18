@@ -140,6 +140,7 @@ public class Model {
 	}	
 	
 
+	// LA RICERCA IN PROFONDITA' (BREADTH) E' IMPLEMENTATA COME LA RICERCA CON ITERATORE SOTTO
 	public List <Country> trovaViciniIteratore (Country start){
 		
 		List <Country> parziale = new ArrayList <Country> ();
